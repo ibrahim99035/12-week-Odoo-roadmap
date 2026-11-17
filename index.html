@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>12-week Odoo roadmap</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<style>
+:root{color-scheme:light;--bg:#f3f1f6;--card:#fff;--ink:#241a29;--soft:#6b5f73;--line:#ddd6e3;--plum:#714b67;--pi:#fff;--tint:#ece4ef;--ok:#2f7d6b;--warn:#fff1d6;--warni:#5a3b00;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#17121b;--card:#211a27;--ink:#efe9f3;--soft:#b2a6ba;--line:#3a2f43;--plum:#c79bb9;--pi:#1b1220;--tint:#2d2236;--ok:#6fcfb6;--warn:#3a2d12;--warni:#f6d98f}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#17121b;--card:#211a27;--ink:#efe9f3;--soft:#b2a6ba;--line:#3a2f43;--plum:#c79bb9;--pi:#1b1220;--tint:#2d2236;--ok:#6fcfb6;--warn:#3a2d12;--warni:#f6d98f}
+html{height:100%;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 4.5rem);scroll-behavior:smooth}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:30}
+h1,h2,h3{font-family:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;letter-spacing:-.01em;line-height:1.15}
+code{background:var(--tint);padding:.05rem .35rem;border-radius:.3rem;font-size:.85em}
+a{color:var(--plum);text-decoration:underline}
+.card{background:var(--card);border:1px solid var(--line);border-radius:.9rem}
+.chk{appearance:none;width:1.25rem;height:1.25rem;flex:none;margin-top:.2rem;border:2px solid var(--soft);border-radius:.35rem;background:var(--card);cursor:pointer;display:grid;place-content:center}
+.chk:checked{background:var(--ok);border-color:var(--ok)}
+.chk:checked::after{content:"";width:.35rem;height:.65rem;border:solid var(--card);border-width:0 2px 2px 0;transform:rotate(45deg) translate(-1px,-1px)}
+.chk:focus-visible,a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--plum);outline-offset:2px}
+.dn{color:var(--soft);text-decoration:line-through}
+.track{background:var(--tint);border-radius:999px;overflow:hidden}
+.fill{background:var(--ok);height:100%;transition:width .3s ease}
+.pill{background:var(--tint);border-radius:999px;padding:.15rem .75rem;font-size:.85rem;text-decoration:none;color:var(--ink)}
+.wk{background:var(--plum);color:var(--pi);border-radius:.6rem;font-family:"Bricolage Grotesque",system-ui,sans-serif;font-weight:700;min-width:3.6rem;text-align:center;padding:.4rem .5rem;line-height:1.1}
+.callout{background:var(--warn);color:var(--warni);border-radius:.9rem}
+.callout a{color:inherit}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:var(--bg);border-bottom:1px solid var(--line)}
+details{border-top:1px solid var(--line)}
+summary{cursor:pointer;padding:1rem 0;font-weight:600;font-size:1.1rem;font-family:"Bricolage Grotesque",system-ui,sans-serif}
+table{border-collapse:collapse;width:100%;font-size:.92rem}
+th,td{text-align:left;padding:.5rem .6rem;border-bottom:1px solid var(--line);vertical-align:top}
+.sc{overflow-x:auto}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.fill{transition:none}}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="mx-auto max-w-4xl px-4 py-3 flex items-center gap-4">
+    <p class="font-semibold shrink-0" style="font-family:'Bricolage Grotesque',system-ui,sans-serif">Odoo roadmap</p>
+    <div class="track h-2.5 flex-1" role="progressbar" aria-label="Overall progress" aria-valuemin="0" aria-valuemax="100" id="pb"><div class="fill" id="pf" style="width:0%"></div></div>
+    <p class="text-sm shrink-0" id="pt"></p>
+  </div>
+</header>
+
+<main class="mx-auto max-w-4xl px-4 pb-24">
+  <section class="pt-10 pb-6">
+    <h1 class="text-4xl sm:text-5xl font-bold max-w-3xl">From Python backend developer to hired Odoo developer in 12 weeks</h1>
+    <p class="mt-4 max-w-2xl text-lg" style="color:var(--soft)">Built for your stack (Python, PostgreSQL, Docker) and the Egyptian market. Assumes 3–4 hours a day on Odoo 18. Tick tasks as you finish them; progress saves in this browser.</p>
+    <nav class="mt-5 flex flex-wrap gap-2" aria-label="Sections">
+      <a class="pill" href="#p0">Weeks 1–3: use Odoo</a><a class="pill" href="#p1">Weeks 4–8: build</a><a class="pill" href="#p2">Weeks 9–12: Egypt and interviews</a><a class="pill" href="#impl">Implementer pathway</a><a class="pill" href="#owl">OWL pathway</a><a class="pill" href="#after">After week 12</a><a class="pill" href="#ref">Reference</a>
+    </nav>
+  </section>
+
+  <section class="callout p-5 sm:p-6" aria-labelledby="now-h">
+    <h2 id="now-h" class="text-xl font-semibold">Do this week, before anything else</h2>
+    <p class="mt-2">Don’t wait for week 4 to apply. SURE International Technology’s Junior Odoo Developer role (Nasr City, hybrid) was open until November 27, 2026. Apply now with your <code>odoo-hms</code> repo, then keep studying. <a href="https://freehire.me/jobs/junior-odoo-developer-sure-international-technology-j7qxntwj">View the posting</a>. From week 4, apply to 3–5 roles a week, and aim for 15–20 applications in total.</p>
+  </section>
+
+  <div id="phases"></div>
+
+  <div id="tracks"></div>
+
+  <section class="mt-12" id="after" aria-labelledby="af-h">
+    <h2 id="af-h" class="text-2xl font-semibold">After week 12: stretch projects</h2>
+    <div class="card p-5 sm:p-6 mt-4"><ul class="grid gap-2.5" id="afterList"></ul></div>
+  </section>
+
+  <section class="mt-12" id="ref" aria-labelledby="rf-h">
+    <h2 id="rf-h" class="text-2xl font-semibold">Reference</h2>
+    <div class="mt-4" id="refList"></div>
+    <div class="border-t" style="border-color:var(--line)"></div>
+  </section>
+</main>
+
+<script>
+const PHASES=[
+{id:"p0",title:"Phase 1: learn Odoo as a user",sub:"Weeks 1–3. You can’t customize a business flow you’ve never run.",weeks:[
+{w:1,t:"Run Odoo and learn order-to-cash",tasks:["Install Odoo 18 with Docker (Odoo + PostgreSQL) and turn on debug mode","Create a company, products, and customers","Run CRM → quotation → sales order → delivery → invoice → payment","Read the Sales and Invoicing docs while you click through"],d:"One-page write-up of the order-to-cash cycle in your own words."},
+{w:2,t:"Purchase, inventory, accounting basics",tasks:["Run purchase → receipt → vendor bill","Set up warehouses, routes, and reordering rules; compare FIFO and AVCO valuation","Start a beginner accounting course: debit/credit, chart of accounts, journals, reconciliation, VAT","Make a reordering rule trigger a purchase order"],d:"Purchase-to-pay diagram plus your stock valuation notes."},
+{w:3,t:"Accounting in Odoo, HR, payroll",tasks:["Invoices, taxes, bank reconciliation, financial reports","Fiscal positions, payment terms, multi-currency basics","Look at HR, timesheets, and payroll (check which payroll module exists for your version)","Add the Odoo section to your resume and fix your dev.to article typos"],d:"A demo company with posted invoices and a balanced financial report."}]},
+{id:"p1",title:"Phase 2: developer depth and portfolio",sub:"Weeks 4–8. Start applying in week 4.",weeks:[
+{w:4,t:"Server Framework 101",tasks:["Do the official Server Framework 101 tutorial end to end","Models, fields, Many2one / One2many / Many2many, views, actions, menus","Security: <code>ir.model.access.csv</code>, groups, and record rules","Start applying: 3–5 roles this week"],d:"Tutorial module on GitHub with commits."},
+{w:5,t:"Inheritance and the ORM",tasks:["<code>_inherit</code> versus <code>_name</code> versus <code>_inherits</code>","View inheritance with XPath","<code>self.env</code> and recordsets: search, browse, create, write, mapped, filtered","<code>@api.depends</code>, <code>@api.onchange</code>, <code>@api.constrains</code>, <code>@api.model_create_multi</code>; computed fields with store, inverse, related"],d:"A module that extends <code>sale.order</code> with an approval step, with no core edits."},
+{w:6,t:"HMS v2, part 1",tasks:["Patients as <code>res.partner</code> records","<code>mail.thread</code> chatter and <code>ir.sequence</code> appointment numbers","Statusbar workflow: draft, confirmed, in consultation, done, cancelled","Groups for doctor, receptionist, admin, plus a record rule so doctors see only their own appointments"],d:"HMS v2 with workflow and security working."},
+{w:7,t:"HMS v2, part 2",tasks:["Generate an invoice from a completed appointment via <code>account.move</code>","One wizard (reschedule) and one cron job (reminders)","QWeb prescription report and demo data","Tests with <code>TransactionCase</code>"],d:"Booking to invoice in 3 minutes, without reading the code."},
+{w:8,t:"Arabic pack and publishing",tasks:["Bilingual invoice, quotation, and delivery note with right-to-left layout and an Arabic font","Amount in words in Arabic; tax registration and commercial register fields","README with screenshots or a GIF, Docker install steps, and the Odoo version","Publish your second dev.to article: Odoo development in practice"],d:"HMS v2 and the Arabic pack, polished and pinned on GitHub."}]},
+{id:"p2",title:"Phase 3: Egypt specialization and interviews",sub:"Weeks 9–12. What separates you from other juniors.",weeks:[
+{w:9,t:"Egyptian company and e-invoicing docs",tasks:["Install <code>l10n_eg</code>; set up an Egyptian company with chart of accounts, VAT, and withholding taxes","Read Odoo’s Egyptian e-invoicing documentation (module <code>l10n_eg_edi_eta</code>)","Learn the flow: Client ID and Secret, USB signing key, local proxy, pre-production testing","Study common rejection causes: item codes, tax IDs, branch setup"],d:"A written explanation of the ETA flow you could give in an interview."},
+{w:10,t:"ETA connector with a mock server",tasks:["FastAPI mock of the ETA API that validates fields and returns accepted or rejected","Odoo module serializes a posted invoice to JSON per ETA’s schema","Store status, UUID, and errors on the invoice; add a retry cron","State in the README that it targets a simulated ETA unless you used the real sandbox"],d:"Posted invoice submits to the mock; every rejection reason shows on the record."},
+{w:11,t:"Implementation and deployment",tasks:["Write a fit-gap table and a functional spec for a fictional distribution company","Do a data-migration exercise with a messy Excel file","Learn deployment: Odoo.sh versus on-premise, workers, Nginx, backups, upgrades","Record a five-minute walkthrough of the configured demo"],d:"Implementation case study you can send to a recruiter."},
+{w:12,t:"Interviews, resume, certification",tasks:["Answer every interview question in the Reference section out loud","Resume headline: Backend Developer | Python, PostgreSQL, Odoo, with a project line and link per repo","Check Odoo’s official certification page for current exams and prices","Apply broadly; follow up on every application after a week"],d:"A final resume, a pinned GitHub, and interviews booked."}]}
+];
+const AFTER=["Paymob payment provider: provider config, sandbox checkout, HMAC-verified webhook that marks invoices paid (check OCA first, and credit borrowed code)","Production deploy kit: <code>docker-compose</code> with Odoo, PostgreSQL, Nginx; backups and restore script; GitHub Actions running module tests","Extend the dashboard into a doctor workspace with a calendar view and quick actions","Small pull request to a real OCA module (a docs fix or small bug fix)","AI assistant module using Gemini and Qdrant, built last once the basics are solid"];
+const REF=[
+["Roles and how companies earn money",`<div class="sc"><table><thead><tr><th>Role</th><th>What they do</th><th>For you</th></tr></thead><tbody>
+<tr><td>Junior Odoo developer</td><td>Build and customize modules in Python and XML</td><td>Best fit now</td></tr>
+<tr><td>Technical consultant / implementer</td><td>Configure, light customization, data migration, client talks</td><td>After week 8</td></tr>
+<tr><td>Support engineer</td><td>Handle tickets after go-live</td><td>An easy way in</td></tr>
+<tr><td>DevOps / hosting</td><td>Deployment, backups, upgrades</td><td>Parallel path: Docker, Nginx</td></tr>
+<tr><td>Functional consultant</td><td>Requirements, configuration, UAT, training</td><td>1–2 years out. Postings ask 2–4 years, fluent Arabic and English, and accounting plus payroll</td></tr>
+<tr><td>Pre-sales / sales engineer</td><td>Demos, scoping, solution design</td><td>Later</td></tr></tbody></table></div>
+<p class="mt-4">Odoo S.A. makes the product; partners sell and implement it. Partners earn from subscription resale, implementation projects, custom modules, support contracts, hosting, training, and version upgrades. Community is free (LGPL); Enterprise is a per-user subscription. Odoo 20 came out in September 2026, but postings mostly mention versions 16–18, so learn 18 and read what changed after it. Odoo 20 drops record rules in favour of a domain on each access right, but versions 16–19 still use them, and interviewers ask about them.</p>`],
+["The implementation lifecycle",`<ol class="list-decimal pl-5 grid gap-1"><li>Discovery: workshops and as-is process maps</li><li>Fit-gap analysis: configure, Studio, or custom code (prefer configuration)</li><li>Design: to-be processes and functional specs</li><li>Configuration: companies, users, chart of accounts, taxes, products, warehouses</li><li>Customization: modules, reports, integrations</li><li>Data migration: clean the client’s Excel files, import, validate</li><li>UAT: the client tests real scenarios and signs off</li><li>Training and go-live: cutover plan, opening balances</li><li>Post-go-live: tickets, change requests, upgrades</li></ol>`],
+["Egypt-specific knowledge",`<ul class="grid gap-2 list-disc pl-5"><li><strong>ETA e-invoicing.</strong> One implementer’s guide says B2B launched in November 2020, all VAT-registered taxpayers were covered by mid-2023, and B2C e-receipts began in July 2023 (verify the details). In Odoo, the modules are <code>l10n_eg</code> and <code>l10n_eg_edi_eta</code>; e-invoicing exists from Odoo 15. You register Odoo on the ETA portal for a Client ID and Secret, sign with a USB key from Egypt Trust through a local proxy, and test on pre-production first. Wrong item codes, tax IDs, or branch setup cause rejections. Check which edition each module needs for your version.</li>
+<li><strong>Arabic and RTL.</strong> Install Arabic, make fields translatable, produce bilingual QWeb reports, and test right-to-left layouts. Clients expect Arabic invoices.</li>
+<li><strong>Taxes and payroll.</strong> Learn VAT, withholding tax, social insurance, and income tax. Payroll appears often in postings.</li>
+<li><strong>Gulf work.</strong> Egyptian consultants often serve Saudi and GCC clients. Saudi has its own e-invoicing (ZATCA); research it after ETA.</li></ul>`],
+["Interview questions to practice",`<ul class="grid gap-1.5 list-disc pl-5"><li>Walk me through menu → action → view → model.</li><li>What’s the difference between <code>_inherit</code>, <code>_name</code>, and <code>_inherits</code>?</li><li>When do you use <code>@api.depends</code> versus <code>@api.onchange</code>?</li><li>Access rights versus record rules?</li><li>How do you extend a standard form view without touching core code?</li><li>What is a fit-gap analysis, and how do you choose between configuration, Studio, and custom code?</li><li>How does a sales order become an invoice?</li><li>How do you debug a slow list view?</li><li>How would you migrate a client from version 16 to 18 with custom modules?</li></ul>`],
+["Implementer interview questions",`<ul class="grid gap-1.5 list-disc pl-5"><li>How would you run discovery with a client who says “we just want what we have now”?</li><li>A client wants a custom field on invoices. Configuration, Studio, or custom code, and why?</li><li>How do you migrate opening balances and open invoices?</li><li>What goes into a UAT plan, and who signs it off?</li><li>A client says “the stock number is wrong”. How do you investigate?</li><li>How do you handle a change request after sign-off?</li><li>Explain bank reconciliation to someone who isn’t an accountant.</li></ul>`],
+["OWL interview questions",`<ul class="grid gap-1.5 list-disc pl-5"><li>What’s the difference between props and state in Owl?</li><li>How do you register a new component in Odoo, and where do the assets go?</li><li>How does a component call the server?</li><li>When do you patch an existing component instead of replacing it?</li><li>What is a registry, and which ones have you used?</li><li>How would you build a custom field widget?</li><li>How do you debug frontend code in Odoo?</li></ul>`],
+["Where to apply and resume fixes",`<p>Set alerts on all of these:</p><p class="mt-2 flex flex-wrap gap-2"><a class="pill" href="https://wuzzuf.net/a/Odoo-Jobs-in-Egypt">Wuzzuf</a><a class="pill" href="https://eg.indeed.com/q-odoo-junior-%d9%88%d8%b8%d8%a7%d8%a6%d9%81.html">Indeed Egypt</a><a class="pill" href="https://www.founditgulf.com/search/odoo-developer-jobs">Foundit Gulf</a><a class="pill" href="https://www.gulftalent.com/jobs/title/odoo-developer">GulfTalent</a><a class="pill" href="https://egypt.tanqeeb.com/s/jobs/Odoo-developer-jobs">Tanqeeb</a><a class="pill" href="https://www.simplyhired.com/search?q=odoo+remote">SimplyHired (remote)</a></p>
+<ul class="mt-4 grid gap-2 list-disc pl-5"><li>Also search “Odoo trainee”, “Odoo implementer”, and “Python developer Odoo”; many junior roles aren’t titled “Junior Odoo Developer”.</li><li>Many junior postings ask for 1–3 years of experience, and the good ones draw over 100 applicants. Apply anyway, with the repo link at the top.</li><li>Glassdoor’s self-reported junior pay is roughly EGP 7K–13K a month from 22 submissions, so treat it as a rough guide.</li><li>Move the “Gap between this and ITI” line out of your experience section and into the Contech project.</li><li>Add Odoo ORM, XML views, QWeb, and ETA e-invoicing to skills, but only the ones you actually built.</li></ul>`]
+];
+
+const KEY="odoo-roadmap-v1";let S={};
+try{S=JSON.parse(localStorage.getItem(KEY)||"{}")||{}}catch(e){S={}}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const ids=[];
+const li=(id,txt)=>{ids.push(id);return `<li><label class="flex gap-3 items-start cursor-pointer"><input type="checkbox" class="chk" data-id="${id}" ${S[id]?"checked":""}><span class="${S[id]?"dn":""}">${txt}</span></label></li>`};
+
+document.getElementById("phases").innerHTML=PHASES.map(p=>`<section class="mt-12" id="${p.id}" aria-labelledby="${p.id}-h">
+  <h2 id="${p.id}-h" class="text-2xl sm:text-3xl font-semibold">${p.title}</h2>
+  <p class="mt-1" style="color:var(--soft)">${p.sub}</p>
+  <div class="mt-5 grid gap-4">${p.weeks.map(k=>`<article class="card p-5 sm:p-6">
+    <div class="flex gap-4 items-start"><div class="wk"><span class="text-xs block" style="opacity:.8">Week</span><span class="text-2xl">${k.w}</span></div>
+    <div class="flex-1"><h3 class="text-xl font-semibold">${k.t}</h3>
+    <div class="mt-3 flex items-center gap-3"><div class="track h-2 flex-1"><div class="fill" id="f${k.w}" style="width:0%"></div></div><p class="text-sm" id="c${k.w}"></p></div></div></div>
+    <ul class="mt-4 grid gap-2.5">${k.tasks.map((t,i)=>li("w"+k.w+"-"+i,t)).join("")}</ul>
+    <p class="mt-4 text-sm p-3 rounded-lg" style="background:var(--tint)"><strong class="font-semibold">Deliverable:</strong> ${k.d}</p>
+  </article>`).join("")}</div></section>`).join("");
+
+const TRACKS=[
+{k:"im",id:"impl",title:"Pathway: Odoo implementer",sub:"For implementer, support consultant, and technical consultant roles, and the route to functional consultant later. Run it alongside weeks 3–12 for about an hour a day. If you want implementer roles first, make this your main track and keep weeks 4–5 shorter.",stages:[
+{t:"Stage 1: configure Odoo without code",tasks:["Add custom fields, views, and automated actions through developer mode (or Studio on an Enterprise trial)","Build approval rules, email templates, and server actions through the UI","Set up users, groups, and access rights without touching code","Import and export data with Odoo’s import tool; fix common errors such as external IDs and many2one matching","Set up multi-company, pricelists, units of measure, and routes"],d:"A demo database configured for a trading company with zero custom code."},
+{t:"Stage 2: discovery and fit-gap",tasks:["Run a mock discovery workshop with a friend and write the as-is process","Draw the to-be process as a flowchart and list the pain points","Write requirements as user stories with acceptance criteria","Fit-gap table: configure, Studio, or custom, with effort in hours and risk","Practice scope control: assumptions, an out-of-scope list, and a change-request process"],d:"A discovery pack for one fictional client: as-is, to-be, requirements, and fit-gap."},
+{t:"Stage 3: data migration and go-live",tasks:["Design import templates for customers, vendors, products, opening stock, and opening balances","Write validation rules for duplicates, missing tax IDs, units, and currencies","Test the migration on a copy of the database, then do a dry-run cutover","Write the cutover checklist: freeze date, final import, opening balances, user access, backups","Egypt: set up <code>l10n_eg</code>, VAT and withholding taxes, and Arabic print layouts"],d:"A migration template workbook and a written cutover plan."},
+{t:"Stage 4: training, UAT, and support",tasks:["Write 10 UAT scenarios with expected results across sales, purchase, stock, and invoicing","Produce a short user guide in Arabic and English with screenshots, and record one training video","Practice the support flow: reproduce, classify (configuration, bug, training, change request), fix, and reply in plain language","Learn to estimate in hours and write a weekly status report"],d:"A UAT sheet, a bilingual user guide, and one recorded training session."},
+{t:"Stage 5: prove it with a real mini-implementation",tasks:["Implement Odoo for one real small business (a relative’s shop, a clinic, a friend’s agency), free or at cost, and collect their feedback","Write it up as a case study: the problem, the apps used, what was customized, the results, and what you’d do differently","Check Odoo’s official certification page for functional exams and prices","Apply to implementer trainee, support consultant, and technical consultant roles with the case study attached"],d:"A published case study from a real client, and a resume line that says “implemented”."}],
+after:"<p class=\"mt-4 text-sm\" style=\"color:var(--soft)\">Egyptian functional-consultant postings usually ask for 2–4 years and strong accounting and payroll knowledge. This pathway gets you into implementer and support roles that build that experience.</p>"},
+{k:"ow",id:"owl",title:"Pathway: OWL (Odoo’s JavaScript framework)",sub:"Start after HMS v2 works (week 7). Run it alongside weeks 8–12, or right after, and finish with the dashboard inside HMS v2.",stages:[
+{t:"Stage 1: the JavaScript you need first",tasks:["ES modules, classes, async/await, destructuring, and the DOM event model","Map what you know from React and Next.js to Owl: components, props, state, and lifecycle hooks versus effects","Set up the browser dev tools and the Owl devtools extension; learn <code>?debug=assets</code> and <code>--dev=all</code>"],d:"A one-page comparison of React and Owl concepts."},
+{t:"Stage 2: Owl on its own",tasks:["Use the Owl playground: components, props, <code>useState</code>, events, slots, and <code>t-if</code>, <code>t-foreach</code>, <code>t-on-click</code>, <code>t-att-</code> in templates","Lifecycle hooks <code>onWillStart</code>, <code>onMounted</code>, <code>onWillUnmount</code>, and refs with <code>useRef</code>","Build a small todo or counter app with a parent and a child component"],d:"A small Owl app with a parent, a child, and shared state."},
+{t:"Stage 3: Owl inside Odoo",tasks:["Register JS, XML templates, and SCSS in the manifest assets bundle (<code>web.assets_backend</code>)","Understand registries: actions, fields, services, and systray","Use <code>useService</code> for <code>orm</code>, <code>action</code>, <code>notification</code>, and <code>dialog</code>","Build a systray item that shows a count from <code>orm.searchCount</code>","Read how a standard Odoo component works in the source before copying a pattern"],d:"A systray counter module that loads with Odoo."},
+{t:"Stage 4: extend the UI",tasks:["Write a custom field widget, such as a status badge for a selection field","Patch an existing component with <code>patch</code> instead of replacing it","Extend a list or form view with a custom <code>js_class</code>","Customize a kanban card","Check your target version’s docs for frontend changes, since these APIs move between versions (website code uses public widgets or interactions depending on version)"],d:"A custom field widget and a patched component, both in a module."},
+{t:"Stage 5: the HMS doctor dashboard",tasks:["A client action with counters (today’s appointments, pending, completed) loaded through the ORM","A chart using the chart library Odoo already bundles","Click a counter to open the filtered list through the action service","Date filter and refresh without a page reload","JS tests (Odoo’s test framework for your version) and a GIF in the README"],d:"A working dashboard inside HMS v2, with a demo GIF."}],
+after:"<p class=\"mt-4 text-sm\" style=\"color:var(--soft)\">Postings that mention OWL usually want it on top of solid Python and ORM skills, so keep this after HMS v2 is working.</p>"}
+];
+document.getElementById("afterList").innerHTML=AFTER.map((t,i)=>li("a-"+i,t)).join("");
+document.getElementById("tracks").innerHTML=TRACKS.map(tr=>`<section class="mt-12" id="${tr.id}" aria-labelledby="${tr.id}-h"><h2 id="${tr.id}-h" class="text-2xl sm:text-3xl font-semibold">${tr.title}</h2><p class="mt-1" style="color:var(--soft)">${tr.sub}</p><div class="mt-4 flex items-center gap-3"><div class="track h-2 flex-1"><div class="fill" id="tf-${tr.k}" style="width:0%"></div></div><p class="text-sm" id="tc-${tr.k}"></p></div><div class="mt-5 grid gap-4">${tr.stages.map((s,n)=>`<article class="card p-5 sm:p-6"><h3 class="text-xl font-semibold">${s.t}</h3><ul class="mt-4 grid gap-2.5">${s.tasks.map((t,i)=>li(tr.k+n+"-"+i,t)).join("")}</ul><p class="mt-4 text-sm p-3 rounded-lg" style="background:var(--tint)"><strong class="font-semibold">Deliverable:</strong> ${s.d}</p></article>`).join("")}</div>${tr.after||""}</section>`).join("");
+document.getElementById("refList").innerHTML=REF.map(r=>`<details><summary>${r[0]}</summary><div class="pb-6">${r[1]}</div></details>`).join("");
+
+function paint(){
+  const all=ids.length,done=ids.filter(i=>S[i]).length,pct=all?Math.round(done/all*100):0;
+  document.getElementById("pf").style.width=pct+"%";
+  document.getElementById("pb").setAttribute("aria-valuenow",pct);
+  document.getElementById("pt").textContent=done+" of "+all+" done";
+  TRACKS.forEach(tr=>{const m=ids.filter(i=>i.startsWith(tr.k)&&!isNaN(i[2])),d=m.filter(i=>S[i]).length;
+    document.getElementById("tf-"+tr.k).style.width=(d/m.length*100)+"%";
+    document.getElementById("tc-"+tr.k).textContent=d+"/"+m.length;});
+  for(let w=1;w<=12;w++){
+    const m=ids.filter(i=>i.startsWith("w"+w+"-")),d=m.filter(i=>S[i]).length;
+    document.getElementById("f"+w).style.width=(d/m.length*100)+"%";
+    document.getElementById("c"+w).textContent=d+"/"+m.length;
+  }
+}
+document.addEventListener("change",e=>{
+  const c=e.target.closest(".chk");if(!c)return;
+  if(c.checked)S[c.dataset.id]=true;else delete S[c.dataset.id];
+  c.nextElementSibling.classList.toggle("dn",c.checked);
+  save();paint();
+});
+paint();
+</script>
+</body>
+</html>
